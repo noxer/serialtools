@@ -29,7 +29,7 @@ func main() {
 	// wrap the reader into a LFNormalizer
 	r := serialtools.NewLFNormalizer(s)
 
-    // now you can read from the normalizer and just deal with \n
+	// now you can read from the normalizer and just deal with \n
 	buf := make([]byte, 1024)
 	n, err := r.Read(buf)
 	if n > 0 {
