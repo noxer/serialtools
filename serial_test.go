@@ -1,6 +1,9 @@
 package serialtools
 
 import (
+	"bytes"
+	"io"
+	"io/ioutil"
 	"strconv"
 	"strings"
 	"testing"
@@ -272,6 +275,26 @@ func TestLFNormalizer_Read(t *testing.T) {
 			}
 
 		})
+	}
+
+}
+
+func BenchmarkRead(b *testing.B) {
+
+	src, err := ioutil.ReadFile("testdata/benchmark.txt")
+	if err != nil {
+		b.Fatalf("Unable to read the test data: %s", err)
+	}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		s := bytes.NewReader(src)
+		r := NewLFNormalizer(s)
+
+		b.StartTimer()
+		io.Copy(ioutil.Discard, r)
+		b.StopTimer()
 	}
 
 }
