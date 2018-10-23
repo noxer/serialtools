@@ -72,7 +72,7 @@ func TestLFNormalizer_MultiRead(t *testing.T) {
 
 }
 
-func TestLFNormalizer_Readx(t *testing.T) {
+func TestLFNormalizer_Read(t *testing.T) {
 
 	type test struct {
 		name   string
