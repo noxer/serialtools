@@ -8,7 +8,7 @@ This package offers functionality to make working with serial interfaces easier.
 
 LFNormalizer
 ---
-Currently the only available function is the normalization of line endings which can differ for device to device. So far I've encountered `\r` (most common), `\n`, `\r\n` (also quite common), and `\n\r`. The normalizer converts all these line endings into `\n` while reading from the source reader.
+Currently the only available function is the normalization of line endings which can differ from device to device. So far I've encountered `\r` (most common), `\n`, `\r\n` (also quite common), and `\n\r`. The normalizer converts all these line endings into a single `\n` while reading from the source reader.
 
 Here is an example on how to use the reader:
 ```go
